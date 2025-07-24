@@ -1,0 +1,7 @@
+numpy
+opencv-python
+pillow
+scikit-learn
+mediapipe
+tensorflow
+protobuf
