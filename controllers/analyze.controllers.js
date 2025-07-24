@@ -3,7 +3,7 @@ import axios from "axios";
 import fs from "fs";
 import { User } from "../models/users.models.js"; // Adjust path as needed
 
-const prototypePrompt1 = fs.readFileSync("prompts/prompt1.txt", "utf8");
+const prototypePrompt1 = fs.readFileSync("Prompts/prompt1.txt", "utf8");
 
 // Use environment variable for API key
 const OPENAI_API_KEY =
