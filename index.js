@@ -30,7 +30,7 @@ import wishListRoute from "./routes/wishList.routes.js";
 dotenv.config();
 await connectDB();
 export const ai = new GoogleGenAI({
-  apiKey: "AIzaSyBIidQwmAulo3UrOqTrVCph_6Pox-ZEDI4",
+  apiKey: process.env.GEMINI_API_KEY,
 });
 job.start();
 
@@ -61,11 +61,11 @@ app.use(
       "http://localhost:3000",
       "https://zuriwebapp-60676.web.app",
       "https://zuriwebapp-60676.firebaseapp.com",
-      "*" // Be more specific in production
+      "*", // Be more specific in production
     ],
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     credentials: true,
-    optionsSuccessStatus: 200
+    optionsSuccessStatus: 200,
   })
 );
 
@@ -180,6 +180,7 @@ export async function extractComplementaryClothMetaData(
             type: String,
             enum: ['Summer', 'Winter', 'Monsoon', 'Autumn', 'Spring', 'All Season'],
           }
+          Category, fabric, and season must be valid enums.
         `;
 
     const response = await ai.models.generateContent({
