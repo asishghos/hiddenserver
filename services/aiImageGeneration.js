@@ -282,13 +282,18 @@ ${
 **IMAGE QUALITY MANDATE**: All generated images must be full-resolution, professional-quality fashion editorial photographs that showcase every styling detail clearly and beautifully.
 `;
 
+    // const aiResponse = await ai.models.generateContent({
+    //   model: "gemini-2.0-flash-preview-image-generation",
+    //   contents: [{ text: aiPrompt }],
+    //   config: {
+    //     responseModalities: ["TEXT", "IMAGE"],
+    //     numberOfImages: numberOfImages || 2,
+    //   },
+    // });
     const aiResponse = await ai.models.generateContent({
-      model: "gemini-2.0-flash-preview-image-generation",
+      model: "imagen-3", // Use the latest, most capable image model
       contents: [{ text: aiPrompt }],
-      config: {
-        responseModalities: ["TEXT", "IMAGE"],
-        numberOfImages: numberOfImages || 2,
-      },
+      // The config object is removed as it's not a valid parameter
     });
 
     // Extract AI generated images
